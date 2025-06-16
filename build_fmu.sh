@@ -16,6 +16,10 @@ if ! command -v cross &> /dev/null; then
     cargo install cross
 fi
 
+# Step 2: Compile locally to generate modelDescription.xml
+echo "Generating modelDescription.xml..."
+cargo build --release
+
 # Step 2: Cross-compiling for linux and windows
 echo "Building shared libraries..."
 cross build --release --target x86_64-unknown-linux-gnu
